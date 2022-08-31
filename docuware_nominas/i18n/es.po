@@ -1,51 +1,201 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* custom_product
+# 	* docuware_nominas
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-28 16:03+0000\n"
-"PO-Revision-Date: 2020-05-28 16:03+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2022-08-31 11:28+0000\n"
+"PO-Revision-Date: 2022-08-31 13:38+0200\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
 
-#. module: custom_product
-#: model_terms:ir.ui.view,arch_db:custom_product.custom_product_product_normal_form_view
-#: model_terms:ir.ui.view,arch_db:custom_product.custom_product_product_template_only_form_view
-msgid "Default Code"
-msgstr "Referencia"
+#. module: docuware_nominas
+#: model:ir.actions.server,name:docuware_nominas.ir_cron_docuware_get_nominas_ir_actions_server
+#: model:ir.cron,cron_name:docuware_nominas.ir_cron_docuware_get_nominas
+#: model:ir.cron,name:docuware_nominas.ir_cron_docuware_get_nominas
+msgid "=> Docuware Get Nominas"
+msgstr ""
 
-#. module: custom_product
-#: model:ir.model,name:custom_product.model_product_product
-msgid "Product"
-msgstr "Producto"
+#. module: docuware_nominas
+#: model:ir.actions.server,name:docuware_nominas.ir_cron_docuware_get_nominas_data_ir_actions_server
+#: model:ir.cron,cron_name:docuware_nominas.ir_cron_docuware_get_nominas_data
+#: model:ir.cron,name:docuware_nominas.ir_cron_docuware_get_nominas_data
+msgid "=> Docuware Get Nominas Data"
+msgstr ""
 
-#. module: custom_product
-#: model:ir.model,name:custom_product.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
+#. module: docuware_nominas
+#: model:ir.actions.server,name:docuware_nominas.ir_cron_docuware_get_signed_nominas_ir_actions_server
+#: model:ir.cron,cron_name:docuware_nominas.ir_cron_docuware_get_signed_nominas
+#: model:ir.cron,name:docuware_nominas.ir_cron_docuware_get_signed_nominas
+msgid "=> Docuware Get Signed Nominas"
+msgstr ""
 
-#. module: custom_product
-#: model:ir.model.fields,field_description:custom_product.field_product_product__uses
-#: model:ir.model.fields,field_description:custom_product.field_product_template__uses
-msgid "Product Uses"
-msgstr "Aplicaciones del producto"
+#. module: docuware_nominas
+#: model:ir.actions.server,name:docuware_nominas.ir_cron_docuware_nominas_call_viafirma_ir_actions_server
+#: model:ir.cron,cron_name:docuware_nominas.ir_cron_docuware_nominas_call_viafirma
+#: model:ir.cron,name:docuware_nominas.ir_cron_docuware_nominas_call_viafirma
+msgid "=> Docuware Nominas Call Viafirma"
+msgstr ""
 
-#. module: custom_product
-#: model:ir.model.fields,field_description:custom_product.field_product_product__references
-#: model:ir.model.fields,field_description:custom_product.field_product_template__references
-#: model_terms:ir.ui.view,arch_db:custom_product.custom_product_product_template_search_view
-msgid "References"
-msgstr "Referencias"
+#. module: docuware_nominas
+#: model:ir.model,name:docuware_nominas.model_docuware_cabinet
+msgid "Cabinets to connect with Odoo and Apps"
+msgstr "Gabinetes para conectar con Odoo y Apps"
 
-#. module: custom_product
-#: model_terms:ir.ui.view,arch_db:custom_product.custom_product_product_template_search_view
-msgid "Uses"
-msgstr "Aplicaciones"
+#. module: docuware_nominas
+#: model:ir.ui.menu,name:docuware_nominas.menu_docuware_call_viafirma_nominas
+msgid "Call Viafirma"
+msgstr "Llamar a Viafirma"
 
+#. module: docuware_nominas
+#: model:ir.actions.server,name:docuware_nominas.call_viafirma_nominas
+msgid "Call Viafirma Nominas"
+msgstr "Llamar a Viafirma Nominas"
+
+#. module: docuware_nominas
+#: model_terms:ir.ui.view,arch_db:docuware_nominas.docuware_nominas_kanban
+msgid "Delete"
+msgstr "Borrar"
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_cabinet__display_name
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_document__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_document__type
+msgid "Document type"
+msgstr "Tipo de Documento"
+
+#. module: docuware_nominas
+#: model:ir.model,name:docuware_nominas.model_docuware_document
+msgid "Documents to work with Odoo and Apps"
+msgstr "Documentos de Trabajo de Odoo y Aplicaciones"
+
+#. module: docuware_nominas
+#: model_terms:ir.ui.view,arch_db:docuware_nominas.docuware_nominas_kanban
+msgid "Dropdown menu"
+msgstr "Menú desplegable"
+
+#. module: docuware_nominas
+#: model_terms:ir.ui.view,arch_db:docuware_nominas.docuware_nominas_kanban
+msgid "Edit"
+msgstr "Editar"
+
+#. module: docuware_nominas
+#: model:ir.ui.menu,name:docuware_nominas.menu_docuware_nominas_sync
+msgid "Get Nominas"
+msgstr "Obtenga Nominas"
+
+#. module: docuware_nominas
+#: model:ir.ui.menu,name:docuware_nominas.menu_docuware_nominas_data_sync
+msgid "Get Nominas Data"
+msgstr "Obtener Datos de Nominas"
+
+#. module: docuware_nominas
+#: model:ir.ui.menu,name:docuware_nominas.menu_docuware_signed_nominas
+msgid "Get Signed Nominas"
+msgstr "Obtener Nomina Firmada"
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_cabinet__id
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_document__id
+msgid "ID"
+msgstr ""
+
+#. module: docuware_nominas
+#: model_terms:ir.ui.view,arch_db:docuware_nominas.docuware_nominas_form
+msgid "Json"
+msgstr ""
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_cabinet____last_update
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_document____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: docuware_nominas
+#: model_terms:ir.ui.view,arch_db:docuware_nominas.docuware_nominas_form
+msgid "Log"
+msgstr ""
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_document__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: docuware_nominas
+#: model:ir.model.fields.selection,name:docuware_nominas.selection__docuware_document__type__nomina
+msgid "Nomina"
+msgstr ""
+
+#. module: docuware_nominas
+#: model:ir.actions.act_window,name:docuware_nominas.action_docuware_nominas
+#: model:ir.ui.menu,name:docuware_nominas.menu_docuware_nominas
+#: model_terms:ir.ui.view,arch_db:docuware_nominas.docuware_nominas_form
+msgid "Nominas"
+msgstr ""
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_cabinet__viafirma_notifications
+msgid "Notification type"
+msgstr "Tipo de Notificacion"
+
+#. module: docuware_nominas
+#: model:ir.model.fields.selection,name:docuware_nominas.selection__docuware_cabinet__type__nominas
+msgid "Nóminas"
+msgstr ""
+
+#. module: docuware_nominas
+#: model_terms:ir.ui.view,arch_db:docuware_nominas.docuware_nominas_kanban
+msgid "Set Cover Image"
+msgstr "Establecer Imagen de Portada"
+
+#. module: docuware_nominas
+#: model_terms:ir.ui.view,arch_db:docuware_nominas.docuware_nominas_kanban
+msgid "Share"
+msgstr "Compartir"
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_document__partner_ids
+msgid "Signants"
+msgstr "Firmantes"
+
+#. module: docuware_nominas
+#: model:ir.actions.server,name:docuware_nominas.docuware_get_nominas_data
+msgid "Sync Nominas data from Docuware"
+msgstr "Sincronización de datos de Nominas de documentos "
+
+#. module: docuware_nominas
+#: model:ir.actions.server,name:docuware_nominas.docuware_get_nominas
+msgid "Sync Nominas from Docuware"
+msgstr "Sincronización de Nominas de documentos"
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_cabinet__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: docuware_nominas
+#: model:ir.actions.server,name:docuware_nominas.docuware_get_signed_nominas
+msgid "Update Signed Nominas"
+msgstr "Actualizar Nomina Firmada"
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_document__viafirma_id
+msgid "Viafirma"
+msgstr ""
+
+#. module: docuware_nominas
+#: model:ir.model.fields,field_description:docuware_nominas.field_docuware_cabinet__viafirma_template
+msgid "Viafirma Template"
+msgstr "Modelo Viafirma"
