@@ -1,51 +1,393 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* custom_product
+# 	* docuware_connector
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-28 16:03+0000\n"
-"PO-Revision-Date: 2020-05-28 16:03+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2022-08-31 09:47+0000\n"
+"PO-Revision-Date: 2022-08-31 12:25+0200\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
 
-#. module: custom_product
-#: model_terms:ir.ui.view,arch_db:custom_product.custom_product_product_normal_form_view
-#: model_terms:ir.ui.view,arch_db:custom_product.custom_product_product_template_only_form_view
-msgid "Default Code"
-msgstr "Referencia"
+#. module: docuware_connector
+#: model:ir.actions.server,name:docuware_connector.ir_cron_docuware_sync_cabinets_and_logout_ir_actions_server
+#: model:ir.cron,cron_name:docuware_connector.ir_cron_docuware_sync_cabinets_and_logout
+#: model:ir.cron,name:docuware_connector.ir_cron_docuware_sync_cabinets_and_logout
+msgid "=> Docuware Get Cabinets and Logout"
+msgstr ""
 
-#. module: custom_product
-#: model:ir.model,name:custom_product.model_product_product
-msgid "Product"
-msgstr "Producto"
+#. module: docuware_connector
+#: code:addons/docuware_connector/models/docuware_document.py:0
+#: model:ir.model.fields.selection,name:docuware_connector.selection__docuware_document__kanban_state__blocked
+#, python-format
+msgid "Blocked"
+msgstr "Bloqueado"
 
-#. module: custom_product
-#: model:ir.model,name:custom_product.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__cabinet_id
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_cabinet_form
+msgid "Cabinet"
+msgstr ""
 
-#. module: custom_product
-#: model:ir.model.fields,field_description:custom_product.field_product_product__uses
-#: model:ir.model.fields,field_description:custom_product.field_product_template__uses
-msgid "Product Uses"
-msgstr "Aplicaciones del producto"
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__guid
+msgid "Cabinet Guid"
+msgstr ""
 
-#. module: custom_product
-#: model:ir.model.fields,field_description:custom_product.field_product_product__references
-#: model:ir.model.fields,field_description:custom_product.field_product_template__references
-#: model_terms:ir.ui.view,arch_db:custom_product.custom_product_product_template_search_view
-msgid "References"
-msgstr "Referencias"
+#. module: docuware_connector
+#: model:ir.actions.act_window,name:docuware_connector.action_docuware_cabinet
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__cabinet_ids
+#: model:ir.ui.menu,name:docuware_connector.menu_docuware_cabinet
+msgid "Cabinets"
+msgstr ""
 
-#. module: custom_product
-#: model_terms:ir.ui.view,arch_db:custom_product.custom_product_product_template_search_view
-msgid "Uses"
-msgstr "Aplicaciones"
+#. module: docuware_connector
+#: model:ir.model,name:docuware_connector.model_docuware_cabinet
+msgid "Cabinets to connect with Odoo and Apps"
+msgstr ""
 
+#. module: docuware_connector
+#: model:ir.model,name:docuware_connector.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: docuware_connector
+#: model:ir.ui.menu,name:docuware_connector.menu_docuware_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__create_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__create_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__create_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__create_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__create_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__create_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__create_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__create_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__create_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__create_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: docuware_connector
+#: model:ir.actions.act_window,name:docuware_connector.action_configuration_dictionary
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__dictionary_id
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__dictionary_id
+#: model:ir.ui.menu,name:docuware_connector.menu_docuware_configuration_dictionary
+msgid "Dictionary"
+msgstr "Diccionario"
+
+#. module: docuware_connector
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_dictionary_form
+msgid "Dictionary name like 'Nóminas'"
+msgstr "Nombre de Diccionario 'Nominas'"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__display_name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__display_name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__display_name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__display_name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__display_name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__display_name
+#: model:ir.model.fields,field_description:docuware_connector.field_res_company__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__document_count
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_cabinet_form
+msgid "Docs"
+msgstr "Documentos"
+
+#. module: docuware_connector
+#: model_terms:ir.actions.act_window,help:docuware_connector.action_view_cabinet_docs
+msgid "Docs in Cabinet"
+msgstr "Documentos en Cabinet"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__document_id
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_document_form
+msgid "Document"
+msgstr "Documento"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__guid
+msgid "Document Guid"
+msgstr "Identificador de Documentos "
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__type
+msgid "Document type"
+msgstr "Tipo de Documentos"
+
+#. module: docuware_connector
+#: model:ir.actions.act_window,name:docuware_connector.action_view_cabinet_docs
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: docuware_connector
+#: model:ir.model,name:docuware_connector.model_docuware_document
+msgid "Documents to work with Odoo and Apps"
+msgstr "Documentos de Trabajo de Odoo y Aplicaciones"
+
+#. module: docuware_connector
+#: model:ir.ui.menu,name:docuware_connector.menu_docuware
+#: model_terms:ir.ui.view,arch_db:docuware_connector.view_docuware_config
+msgid "Docuware"
+msgstr ""
+
+#. module: docuware_connector
+#: model:ir.model,name:docuware_connector.model_docuware_stage
+msgid "Docuware Stage"
+msgstr ""
+
+#. module: docuware_connector
+#: code:addons/docuware_connector/models/docuware_document.py:0
+#: model:ir.model.fields.selection,name:docuware_connector.selection__docuware_document__kanban_state__done
+#, python-format
+msgid "Done"
+msgstr "Hecho"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__error_log
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__error_log
+msgid "Error log"
+msgstr ""
+
+#. module: docuware_connector
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_dictionary_form
+msgid "Field name to dict"
+msgstr "Nombre de Campo para Diccionario"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__value_ids
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_dictionary_form
+msgid "Fields"
+msgstr "Campo"
+
+#. module: docuware_connector
+#: model:ir.model,name:docuware_connector.model_docuware_dictionary
+#: model:ir.model,name:docuware_connector.model_docuware_value
+msgid "Fields to sync by document type"
+msgstr "Campo de sincronización de Documentos"
+
+#. module: docuware_connector
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_cabinet_form
+msgid "Get Documents"
+msgstr "Obtener Documentos"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__legend_done
+msgid "Green Kanban Label"
+msgstr "Etiqueta Kanban Verde"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__id
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__id
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__id
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__id
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__id
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__id
+#: model:ir.model.fields,field_description:docuware_connector.field_res_company__id
+msgid "ID"
+msgstr ""
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__kanban_state
+msgid "Kanban State"
+msgstr "Estado Kanban"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__kanban_state_label
+msgid "Kanban State Label"
+msgstr "Etiqueta de estado Kanban"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet____last_update
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary____last_update
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line____last_update
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document____last_update
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage____last_update
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value____last_update
+#: model:ir.model.fields,field_description:docuware_connector.field_res_company____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__write_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__write_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__write_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__write_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__write_uid
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__write_uid
+msgid "Last Updated by"
+msgstr "Ultima Actualización Por"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__write_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__write_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__write_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__write_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__write_date
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__write_date
+msgid "Last Updated on"
+msgstr "Ultima Actualización en"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__line_ids
+msgid "Lines"
+msgstr "Lineas"
+
+#. module: docuware_connector
+#: model:ir.model,name:docuware_connector.model_docuware_dictionary_line
+msgid "Lines for document type"
+msgstr "Lineas por tipo de Documento"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary__name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__name
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__name
+#: model:ir.model.fields,field_description:docuware_connector.field_res_company__docuware_organization
+msgid "Name"
+msgstr "Nombre"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__odoo_field_id
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__odoo_field_id
+msgid "Odoo Field"
+msgstr "Campo Odoo"
+
+#. module: docuware_connector
+#: model:ir.ui.menu,name:docuware_connector.menu_docuware_operations
+msgid "Operations"
+msgstr "Operaciones"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__binary
+msgid "Original"
+msgstr ""
+
+#. module: docuware_connector
+#: model:ir.model.fields,help:docuware_connector.field_docuware_document__legend_blocked
+msgid ""
+"Override the default value displayed for the blocked state for kanban "
+"selection, when the task or issue is in that stage."
+msgstr ""
+"Sobrescribir el valor predeterminado que se encuentra bloqueado para "
+"la selección de kanban, cuando la tarea o problema se encuentra en "
+"esa etapa."
+
+#. module: docuware_connector
+#: model:ir.model.fields,help:docuware_connector.field_docuware_document__legend_done
+msgid ""
+"Override the default value displayed for the done state for kanban "
+"selection, when the task or issue is in that stage."
+msgstr ""
+"Sobrercribir el valor predeterminado que se encuentra terminado para "
+"la selección de kanban, cuando la tarea o problema se encuentra en "
+"esa etapa."
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_res_company__docuware_pass
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__legend_blocked
+msgid "Red Kanban Label"
+msgstr "Etiqueta Kanban Roja"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_dictionary_line__required
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__required
+msgid "Required"
+msgstr "Requerido"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_stage__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__json
+msgid "Server Json"
+msgstr "Servidor Json"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_document__stage_id
+msgid "Stage"
+msgstr "Escenario"
+
+#. module: docuware_connector
+#: model:ir.ui.menu,name:docuware_connector.menu_docuware_operations_sync
+msgid "Sync Cabinets"
+msgstr "Sincronización de Cabinets"
+
+#. module: docuware_connector
+#: model:ir.actions.server,name:docuware_connector.docuware_sync_cabinets
+msgid "Sync Cabinets from Docuware"
+msgstr "Sincronización de Cabinets de documentos "
+
+#. module: docuware_connector
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_cabinet_form
+msgid "Technical"
+msgstr "Tecnico"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_res_company__docuware_url
+msgid "URL"
+msgstr ""
+
+#. module: docuware_connector
+#: model:ir.model.fields.selection,name:docuware_connector.selection__docuware_document__type__undef
+msgid "Undefined"
+msgstr "Indefinido"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_res_company__docuware_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_cabinet__user_ids
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_cabinet_form
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: docuware_connector
+#: model:ir.model.fields,field_description:docuware_connector.field_docuware_value__value
+msgid "Value"
+msgstr "Valor"
+
+#. module: docuware_connector
+#: model_terms:ir.ui.view,arch_db:docuware_connector.docuware_dictionary_form
+msgid "model,field"
+msgstr "Modelo,Campo"
