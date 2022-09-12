@@ -88,7 +88,7 @@ class DocuwareNominas(models.Model):
             DWDOCID = 0
             for i in range(len(res['Fields'])):
                 if res['Fields'][i]['FieldName'] == 'DWDOCID':
-                    print("DWDOCID",res['Fields'][i]['FieldName'])
+                    print("DWDOCID",res['Fields'][i]['Item'])
                     DWDOCID = res['Fields'][i]['Item']
             if DWDOCID != 0:
                 self.clip_nomina(DWDOCID, s)
@@ -99,6 +99,36 @@ class DocuwareNominas(models.Model):
         except Exception as e:
             self.error_log = str(datetime.now()) + " " + str(e) + "\n"
             return False
+
+    def upload_estado_odoo(self, s, guid, state):
+        try:
+            url = f'{self.env.user.company_id.docuware_url}/docuware/platform/FileCabinets/' \
+                  f'{self.cabinet_id.guid}/Documents/{guid}/Fields'
+
+            s.headers.update({'Content-Type': 'application/json'})
+            s.headers.update({'Accept': 'application/json'})
+
+            f = [
+                {
+                    'FieldName': "ESTADO_ODOO",
+                    'Item': state,
+                    'ItemElementName': 'String',
+                }
+            ]
+
+            index_json = '{"Field": ' + json.dumps(f) + '}'
+
+            r = s.request('POST', url, data=index_json, timeout=30)
+            if r.status_code != 200:
+                self.error_log = str(datetime.now()) + " " + "No se ha podido guardar el estado en Docuware" + "\n"
+
+        except Exception as e:
+            self.error_log = str(datetime.now()) + " " + str(e) + "\n"
+            return False
+
+
+
+
 
 
 

@@ -30,6 +30,8 @@ class DocuwareDocument(models.Model):
     value_ids = fields.One2many('docuware.value', 'document_id', string='Fields')
     type = fields.Selection(selection=TYPES, string='Document type')
 
+    active = fields.Boolean(default=True)
+
     kanban_state = fields.Selection([
         ('done', 'Done'),
         ('blocked', 'Blocked')], string='Kanban State',
@@ -129,6 +131,7 @@ class DocuwareDocument(models.Model):
                                      })
                 if len(mandatory) == len(fields):
                     self.binary = self.generate_attachment(s, fdownload)
+                    self.upload_estado_odoo(s, self.guid, "En_curso")
                     return True
                 else:
                     self.kanban_state_label = self.legend_blocked
