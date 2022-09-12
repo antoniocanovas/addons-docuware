@@ -45,12 +45,10 @@ class DocuwareCabinet(models.Model):
             s.headers.update({'User-Agent': 'welcome-letter'})
             s.headers.update({'Accept': 'application/json'})
             if c_path.exists():
-                print("exist",s)
                 with open(c_path, mode='rb') as f:
                     s.cookies.update(pickle.load(f))
                 return s
             else:
-                print("DONT",s)
                 url = f'{self.env.user.company_id.docuware_url}/docuware/platform/Account/Logon'
                 payload = {
                     'LicenseType': '',
@@ -64,8 +62,6 @@ class DocuwareCabinet(models.Model):
                     'Content-Type': 'application/x-www-form-urlencoded',
                 }
                 response = s.request('POST', url, headers=headers, data=payload, timeout=30)
-                print(response.json())
-                print("COOKIES",s.cookies.get_dict())
 
                 if response.status_code != 200:
                     logging.info(
@@ -107,7 +103,6 @@ class DocuwareCabinet(models.Model):
     def logout(self, c_path, s):
         url = f'{self.env.user.company_id.docuware_url}/docuware/platform/Account/Logoff'
         r = s.request('GET', url, timeout=30)
-        print("RAISE",r.raise_for_status())
         c_path.unlink()
 
     def get_orgid(self, s):
@@ -161,20 +156,35 @@ class DocuwareCabinet(models.Model):
                 if resp.status_code == 200:
                     # return json.loads(resp.content.decode('utf-8'))
                     res = json.loads(resp.content.decode('utf-8'))
-                    docuware_documents = self.env['docuware.document'].search([('cabinet_id', '=', self.id)])
+                    docuware_documents = self.env['docuware.document'].search([('cabinet_id', '=', self.id),
+                                                                               "|",
+                                                                               ("active", "=", True),
+                                                                               ("active", "=", False),
+                                                                               ])
                     odoo_documents = []
                     for document in docuware_documents:
-                        odoo_documents.append(document.name)
+                        odoo_documents.append(document.guid)
+
                     for i in range(len(res['Items'])):
-                        if res['Items'][i]['Title'] not in odoo_documents:
-                            new_document = self.env['docuware.document'].create({
-                                'name': res['Items'][i]['Title'],
-                                'cabinet_id': self.id,
-                                'type': type,
-                            })
-                            for j in range(len(res['Items'][i]['Fields'])):
-                                if res['Items'][i]['Fields'][j]['FieldName'] == 'DWDOCID':
-                                    new_document.guid = res['Items'][i]['Fields'][j]['Item']
+                        DWDOCID = False
+                        Title = False
+                        if res['Items'][i]['Title']:
+                            Title = res['Items'][i]['Title']
+                        for j in range(len(res['Items'][i]['Fields'])):
+                            if res['Items'][i]['Fields'][j]['FieldName'] == 'DWDOCID':
+                                if str(res['Items'][i]['Fields'][j]['Item']) not in odoo_documents:
+                                    DWDOCID = res['Items'][i]['Fields'][j]['Item']
+                        if DWDOCID and Title:
+                            for z in range(len(res['Items'][i]['Fields'])):
+                                if res['Items'][i]['Fields'][z]['FieldName'] == 'ESTADO_ODOO':
+                                    if res['Items'][i]['Fields'][z]['Item'] != 'Firmado':
+                                        new_document = self.env['docuware.document'].create({
+                                            'name': Title,
+                                            'cabinet_id': self.id,
+                                            'type': type,
+                                            'guid': DWDOCID,
+                                        })
+                                        #new_document.upload_estado_odoo(s, new_document.guid, "En_curso")
 
                 #self.logout(c_path, s)
         except Exception as e:

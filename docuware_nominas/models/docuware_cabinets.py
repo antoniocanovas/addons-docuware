@@ -32,7 +32,6 @@ class DocuwareCabinets(models.Model):
     def get_nominas_data(self):
         c_path = Path('/tmp/cookies.bin')
         s = self.login(c_path)
-        print("S",s)
         if s:
             stage_id = self.env['docuware.stage'].search([('name', '=', 'New')]).id
             documents = self.env['docuware.document'].search([('type', '=', 'nomina'),('stage_id', '=', stage_id)])
@@ -116,10 +115,12 @@ class DocuwareCabinets(models.Model):
         if s:
             for nomina in nominas:
                 if nomina.viafirma_id.document_signed:
+                    print("Firmado")
                     result = nomina.upload_and_clip(s)
                     if result:
                         nomina.kanban_state = 'done'
                         nomina.stage_id = signed
+                        #nomina.upload_estado_odoo(s, nomina.guid, "Firmado")
                     else:
                         nomina.kanban_state = 'blocked'
             #self.logout(c_path, s)
