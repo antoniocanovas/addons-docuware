@@ -97,6 +97,7 @@ class DocuwareCabinets(models.Model):
             ('type', '=', 'nomina'),
         ])
         for nomina in nominas:
+            print("Viafrima", nomina)
             try:
                 nomina.viafirma_id.call_viafirma()
                 processing = self.env['docuware.stage'].search([('name', '=', 'Processing')]).id
