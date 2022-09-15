@@ -35,8 +35,10 @@ class DocuwareCabinets(models.Model):
         if s:
             stage_id = self.env['docuware.stage'].search([('name', '=', 'New')]).id
             documents = self.env['docuware.document'].search([('type', '=', 'nomina'),('stage_id', '=', stage_id)])
+            print("DOCUMENTS", documents)
             for document in documents:
                 done = document.get_document_data_from_operation(document.cabinet_id.dictionary_id.line_ids, s)
+                print("DONE", done)
                 try:
                     if done:
                         # Get partner data to send viafirma notification
