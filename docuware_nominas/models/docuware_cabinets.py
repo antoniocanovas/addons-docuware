@@ -41,8 +41,10 @@ class DocuwareCabinets(models.Model):
                 print("DONE", done)
                 try:
                     if done:
+                        print("IF DONE")
                         # Get partner data to send viafirma notification
                         signants = document.get_signants_test()
+                        print("SIGNANTS", signants)
                         if signants:
                             # Because is Nomina, we need to add the company in the sign process
                             document.write({'partner_ids': [(4, self.env.user.company_id.id)]})
