@@ -57,6 +57,20 @@
             <field name="code">model.get_signed_nominas()</field>
         </record>
 
+        <record id="ir_cron_docuware_upload_audit_nominas" model="ir.cron">
+            <field name="name">=> Docuware upload audit Nominas</field>
+            <field ref="model_docuware_cabinet" name="model_id"/>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="interval_number">50</field>
+            <!--<field name="channel_id">1</field>-->
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall" />
+            <field name="state">code</field>
+            <field name="code">model.upload_audit_nomina()</field>
+        </record>
+
 
     </data>
 </odoo>

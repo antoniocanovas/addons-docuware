@@ -53,11 +53,11 @@ class DocuwareNominas(models.Model):
 
             except Exception as e:
                 self.error_log = str(datetime.now()) + " " + str(e) + "\n"
-                return False
 
-    def upload_and_clip(self, s):
+    def upload_and_clip(self, s, extra, doc):
         try:
-            file_name = str(self.name) + "_signed"
+            file_name = str(self.name) + str(extra)
+            #file_name2 = str(self.name) + "_Audit"
             url = f'{self.env.user.company_id.docuware_url}/docuware/platform/FileCabinets/' \
                   f'{self.cabinet_id.guid}/Documents'
 
@@ -76,10 +76,13 @@ class DocuwareNominas(models.Model):
             #    })
 
             index_json = '{"Fields": ' + json.dumps(f) + '}'
-            binary = base64.decodebytes(self.viafirma_id.document_signed)
+
+            binary = base64.decodebytes(doc)
+            #binary2 = base64.decodebytes(self.viafirma_id.document_trail)
             multipart_form_data = {
                 'document': (None, index_json, 'application/json'),
                 'file[]': (str(file_name), binary, 'application/pdf'),
+
             }
 
             r = s.request('POST', url, files=multipart_form_data, timeout=30)
@@ -88,7 +91,6 @@ class DocuwareNominas(models.Model):
             DWDOCID = 0
             for i in range(len(res['Fields'])):
                 if res['Fields'][i]['FieldName'] == 'DWDOCID':
-                    print("DWDOCID",res['Fields'][i]['Item'])
                     DWDOCID = res['Fields'][i]['Item']
             if DWDOCID != 0:
                 self.clip_nomina(DWDOCID, s)

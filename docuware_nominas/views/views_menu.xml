@@ -21,13 +21,13 @@
 
     </record>
 
-   <!-- <menuitem
-            action="action_docuware_nominas"
-            id="menu_nominas"
-            name="Docuware Nóminas"
-            sequence="10"
-            web_icon="docuware_nominas,static/description/icon.png"
-    /> -->
+    <!-- <menuitem
+             action="action_docuware_nominas"
+             id="menu_nominas"
+             name="Docuware Nóminas"
+             sequence="10"
+             web_icon="docuware_nominas,static/description/icon.png"
+     /> -->
 
     <record id="menu_docuware_nominas" model="ir.ui.menu">
         <field name="action" ref="action_docuware_nominas"/>
@@ -48,8 +48,8 @@
         <field name="web_icon" eval="False"/>
     </record> -->
 
-     <record id="menu_docuware_nominas_sync" model="ir.ui.menu">
-         <field name="action" ref="docuware_get_nominas"/>
+    <record id="menu_docuware_nominas_sync" model="ir.ui.menu">
+        <field name="action" ref="docuware_get_nominas"/>
         <field name="active" eval="True"/>
         <field name="groups_id" eval="[(4,ref('base.group_system'))]"/>
         <field name="name">Get Nominas</field>
@@ -59,7 +59,7 @@
     </record>
 
     <record id="menu_docuware_nominas_data_sync" model="ir.ui.menu">
-         <field name="action" ref="docuware_get_nominas_data"/>
+        <field name="action" ref="docuware_get_nominas_data"/>
         <field name="active" eval="True"/>
         <field name="groups_id" eval="[(4,ref('base.group_system'))]"/>
         <field name="name">Get Nominas Data</field>
@@ -69,7 +69,7 @@
     </record>
 
     <record id="menu_docuware_call_viafirma_nominas" model="ir.ui.menu">
-         <field name="action" ref="call_viafirma_nominas"/>
+        <field name="action" ref="call_viafirma_nominas"/>
         <field name="active" eval="True"/>
         <field name="groups_id" eval="[(4,ref('base.group_system'))]"/>
         <field name="name">Call Viafirma</field>
@@ -79,12 +79,22 @@
     </record>
 
     <record id="menu_docuware_signed_nominas" model="ir.ui.menu">
-         <field name="action" ref="docuware_get_signed_nominas"/>
+        <field name="action" ref="docuware_get_signed_nominas"/>
         <field name="active" eval="True"/>
         <field name="groups_id" eval="[(4,ref('base.group_system'))]"/>
         <field name="name">Get Signed Nominas</field>
         <field name="parent_id" ref="docuware_connector.menu_docuware_operations"/>
         <field name="sequence">5</field>
+        <field name="web_icon" eval="False"/>
+    </record>
+
+    <record id="menu_docuware_audit_nominas" model="ir.ui.menu">
+        <field name="action" ref="docuware_upload_audit_nominas"/>
+        <field name="active" eval="True"/>
+        <field name="groups_id" eval="[(4,ref('base.group_system'))]"/>
+        <field name="name">Upload Audit Nominas</field>
+        <field name="parent_id" ref="docuware_connector.menu_docuware_operations"/>
+        <field name="sequence">6</field>
         <field name="web_icon" eval="False"/>
     </record>
 

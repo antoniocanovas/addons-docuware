@@ -35,16 +35,16 @@ class DocuwareCabinets(models.Model):
         if s:
             stage_id = self.env['docuware.stage'].search([('name', '=', 'New')]).id
             documents = self.env['docuware.document'].search([('type', '=', 'nomina'),('stage_id', '=', stage_id)])
-            print("DOCUMENTS", documents)
+
             for document in documents:
                 done = document.get_document_data_from_operation(document.cabinet_id.dictionary_id.line_ids, s)
-                print("DONE", done)
+
                 try:
                     if done:
-                        print("IF DONE")
+
                         # Get partner data to send viafirma notification
                         signants = document.get_signants_test()
-                        print("SIGNANTS", signants)
+
                         if signants:
                             # Because is Nomina, we need to add the company in the sign process
                             document.write({'partner_ids': [(4, self.env.user.company_id.id)]})
@@ -81,7 +81,6 @@ class DocuwareCabinets(models.Model):
                             document.kanban_state = 'blocked'
                             document.error_log = str(datetime.now()) + " " + \
                                                                         "Can't find a user with the given NIF" + "\n"
-                            return False
 
                 except Exception as e:
                     #document.kanban_state_label = document.legend_blocked
@@ -97,7 +96,6 @@ class DocuwareCabinets(models.Model):
             ('type', '=', 'nomina'),
         ])
         for nomina in nominas:
-            print("Viafrima", nomina)
             try:
                 nomina.viafirma_id.call_viafirma()
                 processing = self.env['docuware.stage'].search([('name', '=', 'Processing')]).id
@@ -114,18 +112,39 @@ class DocuwareCabinets(models.Model):
         nominas = self.env['docuware.document'].search([
             ('stage_id', '=', processing),
             ('type', '=', 'nomina'),
-        ])
+            ('viafirma_id.document_signed', '!=', False),
+        ], limit=1)
         c_path = Path('/tmp/cookies.bin')
         s = self.login(c_path)
         if s:
             for nomina in nominas:
-                if nomina.viafirma_id.document_signed:
-                    print("Firmado")
-                    result = nomina.upload_and_clip(s)
-                    if result:
-                        nomina.kanban_state = 'done'
-                        nomina.stage_id = signed
-                        #nomina.upload_estado_odoo(s, nomina.guid, "Firmado")
-                    else:
-                        nomina.kanban_state = 'blocked'
+                result = nomina.upload_and_clip(s, "_Signed", nomina.viafirma_id.document_signed)
+
+                if result:
+                    nomina.kanban_state = 'done'
+                    nomina.stage_id = signed
+                    nomina.upload_estado_odoo(s, nomina.guid, "Firmado")
+                else:
+                    nomina.kanban_state = 'blocked'
             #self.logout(c_path, s)
+
+    @api.model
+    def upload_audit_nomina(self):
+        signed = self.env['docuware.stage'].search([('name', '=', 'Signed')]).id
+        audit = self.env['docuware.stage'].search([('name', '=', 'Audit')]).id
+        nominas = self.env['docuware.document'].search([
+            ('stage_id', '=', signed),
+            ('type', '=', 'nomina'),
+            ('viafirma_id.document_trail', '!=', False),
+        ], limit=1)
+        c_path = Path('/tmp/cookies.bin')
+        s = self.login(c_path)
+        if s:
+            for nomina in nominas:
+                result = nomina.upload_and_clip(s, "_Audit", nomina.viafirma_id.document_trail)
+                if result:
+                    nomina.kanban_state = 'done'
+                    nomina.stage_id = audit
+                else:
+                    nomina.kanban_state = 'blocked'
+            # self.logout(c_path, s)

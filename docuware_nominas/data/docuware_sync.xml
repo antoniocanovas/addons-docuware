@@ -28,6 +28,13 @@
         <field name="code">model.get_signed_nominas()</field>
     </record>
 
+    <record id="docuware_upload_audit_nominas" model="ir.actions.server">
+        <field name="name">Upload Audit Nominas</field>
+        <field name="model_id" ref="model_docuware_cabinet"/>
+        <field name="state">code</field>
+        <field name="code">model.upload_audit_nomina()</field>
+    </record>
+
     <!-- Nominas Stages -->
     <record id="docuware_stage_1" model="docuware.stage">
         <field name="sequence">10</field>
@@ -44,6 +51,13 @@
     <record id="docuware_stage_3" model="docuware.stage">
         <field name="sequence">30</field>
         <field name="name">Signed</field>
+        <!--<field name="legend_done">Ready to reopen</field>
+        <field name="fold" eval="True"/>
+        <field name="is_closed" eval="True"/>-->
+    </record>
+    <record id="docuware_stage_4" model="docuware.stage">
+        <field name="sequence">40</field>
+        <field name="name">Audit</field>
         <!--<field name="legend_done">Ready to reopen</field>
         <field name="fold" eval="True"/>
         <field name="is_closed" eval="True"/>-->

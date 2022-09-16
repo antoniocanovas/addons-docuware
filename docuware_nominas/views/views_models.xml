@@ -19,7 +19,7 @@
                         <field name="viafirma_id" readonly="1"/>
                     </group>
                     <group name="docuware_connection_info" position="after">
-                        <notebook colspan="4" groups="base.group_system">
+                        <notebook colspan="4" >
                             <page string="Log" name="log">
                                 <!--<group name="upload_button">
                                     <button name="upload_and_clip" string="Upload Document" type="object" class="oe_highlight oe_read_only"/>
@@ -28,7 +28,7 @@
                                     <field name="error_log"/>
                                 </group>
                             </page>
-                            <page string="Json" name="json">
+                            <page string="Json" name="json" groups="base.group_system">
                                 <group name="docuware_json" col="4">
                                     <field name="json"/>
                                 </group>
