@@ -46,6 +46,7 @@ class DocuwareCabinets(models.Model):
                         signants = document.get_signants_test()
 
                         if signants:
+                            worker = document.partner_ids[0]
                             # Because is Nomina, we need to add the company in the sign process
                             document.write({'partner_ids': [(4, self.env.user.company_id.id)]})
 
@@ -60,7 +61,7 @@ class DocuwareCabinets(models.Model):
 
                             viafirma = document.viafirma_id = self.env['viafirma'].create({
                                 'name': str(document.name),
-                                'noti_text': str(document.name),
+                                'noti_text': str(worker.name),
                                 'noti_detail': "Document to Sign " + str(document.name),
                                 'noti_subject': str(document.name),
                                 'template_id': document.cabinet_id.viafirma_template.id,
