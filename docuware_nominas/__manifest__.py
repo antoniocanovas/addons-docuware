@@ -7,7 +7,7 @@
 
 {
     "name": "Docuware Nominas",
-    "version": "14.0.2.0.0",
+    "version": "16.0.0.1.0",
     "category": "Documentation and digital sign by viafirma",
     "author": "PedroGuirao",
     "maintainer": "Serincloud",

@@ -7,7 +7,7 @@
 
 {
     "name": "Docuware Connector",
-    "version": "14.0.2.0.0",
+    "version": "16.0.0.1.0",
     "category": "Documentation",
     "author": "PedroGuirao",
     "maintainer": "Serincloud",
